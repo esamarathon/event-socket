@@ -9,7 +9,7 @@ module.exports = function babelConfig(api) {
   const plugins = [
     ['module-resolver', {
       alias: {
-        shared: './shared/src',
+        shared: './shared',
       },
     }],
   ];

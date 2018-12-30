@@ -3,11 +3,20 @@
     "env": {
       "node": true
     },
-    "extends": [    
+    "extends": [
       "airbnb-base"
     ],
     "rules": {
       "generator-star-spacing": "off"
+    },
+    "settings": {
+      "import/resolver": {
+        "alias": {
+          "map": [
+            ["shared", "./shared"]
+          ]
+        }
+      }
     }
   }
   

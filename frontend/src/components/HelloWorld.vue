@@ -84,7 +84,8 @@
 </template>
 
 <script>
-import doAThing from 'shared/basics';
+import doAThing from 'shared/src/basics';
+import settings from '../settings';
 
 export default {
   name: 'HelloWorld',

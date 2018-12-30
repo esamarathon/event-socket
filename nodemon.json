@@ -1,0 +1,12 @@
+{
+  "verbose": true,
+  "watch": [
+    "backend",
+    "shared"
+  ],
+  "ignore": [
+    "*/dist/",
+    "frontend/"
+  ],
+  "delay": "250"
+}
