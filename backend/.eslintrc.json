@@ -7,7 +7,8 @@
       "airbnb-base"
     ],
     "rules": {
-      "generator-star-spacing": "off"
+      "generator-star-spacing": "off",
+      "no-param-reassign": "off"
     },
     "settings": {
       "import/resolver": {
