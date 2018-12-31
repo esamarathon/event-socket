@@ -7,6 +7,16 @@
     "airbnb-base"
   ],
   "rules": {
-    "generator-star-spacing": "off"
+    "generator-star-spacing": "off",
+    "import/prefer-default-export": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["shared", "./shared"]
+        ]
+      }
+    }
   }
 }

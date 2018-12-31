@@ -1,5 +1,5 @@
 {
-    "root": true,
+    "root": false,
     "env": {
       "node": true
     },
@@ -8,7 +8,8 @@
     ],
     "rules": {
       "generator-star-spacing": "off",
-      "no-param-reassign": "off"
+      "no-param-reassign": "off",
+      "import/prefer-default-export": "off"
     },
     "settings": {
       "import/resolver": {

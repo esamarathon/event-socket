@@ -2,5 +2,15 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "protobufjs": "^6.8.8"
+  },
+  "devDependencies": {
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.14.0"
+  }
 }

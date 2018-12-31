@@ -1,3 +1,9 @@
 {
-  "default": true
+	"api": {
+		"port": 8082
+	},
+	"protobuf": {
+		"definitionsBase": "../mq-events/definitions",
+		"refreshTimeout": 60000
+	}
 }
