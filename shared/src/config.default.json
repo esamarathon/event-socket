@@ -1,8 +1,9 @@
 {
 	"api": {
-		"port": 8082
+		"port": 8082,
+		"baseurl": "http://127.0.0.1:8082"
 	},
-	"protobuf": {
+	"MQEvents": {
 		"definitionsBase": "../mq-events/definitions",
 		"refreshTimeout": 60000
 	}

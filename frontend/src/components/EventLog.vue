@@ -1,9 +1,9 @@
 <template>
   <div class="layout-row">
     <div class="layout-column">
-      <div class="layout-row event-type" v-for="eventType in eventTypes" :key="eventType.id">
-        <div class="event-name"></div>
-        <div class="event-run"></div>
+      <div class="layout-row event-type" v-for="messageType in messages" :key="messageType.id">
+        <div class="event-name">{{messageType.$meta.name}}</div>
+        <div class="event-run">&rarr;</div>
       </div>
     </div>
     <div class="layout-column">
@@ -13,20 +13,18 @@
 </template>
 
 <script>
-import doAThing from 'shared/basics';
+import { getMessageTypes } from '../api.js';
 
 export default {
-  name: 'HelloWorld',
+  name: 'EventLog',
   data: () => ({
-    messages: [{
-      name: "UserUpdate",
-      proto: "message UserUpdate { required string id = 0; optional string name = 1; }"
-    }]
+    messages: null
   }),
+  async created() {
+    this.messages = await getMessageTypes();
+    console.log("Message types:", this.messages);
+  },
   methods: {
-    doAThing() {
-
-    },
   },
 };
 </script>

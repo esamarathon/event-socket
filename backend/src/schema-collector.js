@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
-import protobuf from 'protobufjs';
 
 import { promisify } from 'shared/src/helpers';
 import settings from './settings';
@@ -25,14 +24,14 @@ async function recFindByExt(base, ext) {
 let messages = null;
 
 async function updateMessageList() {
-  const protoFiles = await recFindByExt(settings.protobuf.definitionsBase, '.proto');
-  console.log('Found proto files:', protoFiles);
-  return Promise.all(_.map(protoFiles, async (fileName) => {
+  const schemaFiles = await recFindByExt(settings.MQEvents.definitionsBase, '.json');
+  console.log('Found schema files:', schemaFiles);
+  return Promise.all(_.map(schemaFiles, async (fileName) => {
     try {
-      const protoDesc = await protobuf.load(fileName);
-      console.log('Loaded', fileName, ':', protoDesc);
-      const protoJSON = protoDesc.toJSON();
-      return protoJSON;
+      const schemaDesc = await promisify(fs.readFile, fileName, 'utf-8');
+      console.log('Loaded', fileName, ':', schemaDesc);
+      const schemaJSON = JSON.parse(schemaDesc);
+      return schemaJSON;
     } catch (err) {
       console.error(err);
       return null;
@@ -45,7 +44,7 @@ export async function getMessageList() {
   if (!messages) {
     messages = updateMessageList();
     // update every minute
-    setTimeout(() => { messages = null; }, settings.protobuf.refreshTimeout);
+    setTimeout(() => { messages = null; }, settings.MQEvents.refreshTimeout);
   }
   return messages;
 }
